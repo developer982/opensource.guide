@@ -21,13 +21,12 @@ HTMLProofer::Runner.new(
   ["_site"],
   parallel: { in_threads: 4 },
   type: :directory,
-  ignore_urls: url_ignores,
+  url_ignore: url_ignores,
   check_html: true,
   check_opengraph: true,
+  check_img_http: true,
   favicon: true,
   assume_extension: true,
-  allow_missing_href: true,
-  enforce_https: false,
   only_4xx: true,
-  ignore_status_codes: [429]
+  http_status_ignore: [429]
 ).run
